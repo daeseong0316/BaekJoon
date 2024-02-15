@@ -1,0 +1,20 @@
+using System;
+using System.Globalization;
+using System.Net.Http.Headers;
+using static System.Console;
+
+namespace Baekjoon
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string name = ReadLine();
+
+            int len = name.Length;
+
+            Console.WriteLine(len);
+            
+        }
+    }
+}

@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int N, M;	// N = 바구니 갯수, M = 공을 넣는 횟수
+	int i, j, k;	
+	
+	cin >> N;
+	int* arr = new int[N]();	// 바구니 갯수 생성 후 0으로 초기화
+	
+	cin >> M;	// 공 숫자 선택
+
+	for (int q = 0; q < M; q++) {	// 몇개의 공을 넣을껀지
+		cin >> i >> j >> k;	
+		for (int w = i; w <= j; w++) {	// i번 바구니부터 j번 바구니까지에 k번 번호가 적혀져 있는 공을 넣는다
+			arr[w] = k;	// 바구니에 공 넣기
+		}
+	}
+	for (int e = 1; e <= N; e++) {	
+		cout << arr[e] << " ";	// 출력
+	}
+
+	delete[] arr; // 동적으로 할당한 배열은 해제
+
+	return 0;
+}

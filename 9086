@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+	int T;	// 케이스 개수
+	cin >> T;
+
+	cin.ignore();	//  버퍼에서 개행 문자('\n')를 제거(cin을 사용하여 숫자를 입력받은 후 getline() 함수를 사용하여 문자열을 입력받을 때, 이전에 입력받은 개행 문자('\n')가 getline() 함수에 의해 처리될 수 있다)
+
+	std::string input_name;
+	for (int i = 0; i < T; i++) {
+		std::getline(std::cin, input_name);	// 문자열 입력
+
+		if (input_name.empty()) {	// 빈문자열 예외처리
+			std::cout << "입력된 문자열이 없습니다." << std::endl;
+			return 1;
+		}
+
+		cout << input_name.front() << input_name.back() << endl;	// 출력
+	}
+
+	return 0;
+}

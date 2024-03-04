@@ -5,15 +5,15 @@ using namespace std;
 int main() {
     string S;   // 단어
     
-    vector<string> number = { {"-1"},{"-1"},{"-1"},{"ABC"},{"DEF"},{"GHI"},{"JKL"},{"MNO"},{"PQRS"},{"TUV"},{"WXYZ"} };    // 전화기 번호
+    vector<string> number = { {"-1"},{"-1"},{"-1"},{"ABC"},{"DEF"},{"GHI"},{"JKL"},{"MNO"},{"PQRS"},{"TUV"},{"WXYZ"} };    // 전화기 번호(숫자 1은 2초가 걸리며, 그 다음 수 부터는 +1초가 더 걸리기 때문에 "ABC"가 인덱스 3에 위치한다)
     
-    cin >> S;
+    cin >> S;   // (WA입력)
     
     int sum = 0;
-    for (int i = 0; i < S.length(); i++)    // S의 문자열 길이만큼
-        for (int j = 0; j < number.size(); j++)    // number의 사이즈 만큼 반복
-            if (number[j].find(S[i]) != string::npos)   // S[i]가 존재하지 않는다면 npos를 반환한다
-                sum += j;   //더하기
+    for (int i = 0; i < S.length(); i++)    // S의 문자열 길이만큼 반복(WA는 문자열의 길이는 2이다)
+        for (int j = 0; j < number.size(); j++)    // number의 사이즈 만큼 반복(vector의 인덱스를 하나씩 찾아가면서 S의 문자를 찾는다)
+            if (number[j].find(S[i]) != string::npos)   // S[i]가 존재하지 않는다면 npos를 반환한다(S[0]은 W이기 때문에 number 10에 위치하며, S[1]은 A이기 때문에 number 3에 위치한다)
+                sum += j;   //더하기(10 + 3)
     
     cout << sum;    // 출력
 }
